@@ -1,43 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>    
     {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Showroom Management System</title>
-    <script src="{% static 'script.js' %}" defer></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="header">
-        <div class="Logo">
-            <img id="logoimg" src="{% static 'images/wonder_match__1_-removebg-preview.png' %}" alt="Logo">
-            <p id="logotext">CARVISTA</p>
-        </div>
-        <div class="navbar">
-            <nav>
-                <a href="{% url 'home' %}">Home</a>
-                <a href="{% url 'car_list' %}">Car Listing</a>
-                <a href="{% url 'contact' %}">Contact</a>
-                <a href="{% url 'view_about' %}">About</a>
-            </nav>
-        </div>
-        <div class="loginbut">
-            <a id="loginbutton" href="{% url 'login' %}">Login</a>
-        </div>
-    </div>
-    <div class="middle">
-        <img class="midimg" src="{% static 'images/FIND YOUR CAR.png' %}" alt="Find Your Car">
-    </div>
 
-    {% block body %}
+    <title>CarVista</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="{% static 'styles.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    {% block head %}
     {% endblock %}
-    
-</body>
-</html>
+   
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="Logo">
+        <img id="logoimg" src="{% static 'images/wonder_match__1_-removebg-preview.png' %}" alt="Carvista Logo">
+        <p id="logotext">CARVISTA</p>
+    </div>
+    <div class="navbar">
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'car_list' %}">Car Listing</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'view_about' %}">About</a>
+        </nav>
+    </div>
+    <div class="loginbut">
+        <a id="loginbutton" href="{% url 'login' %}">Login</a>
+    </div>
+</div>
+<main>
+  {% block content %}{% endblock %}
+</main>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h2>Carvista</h2>
+            <p>Your premier destination for luxury and performance vehicles.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'car_list' %}">Inventory</a></li>
+                <li><a href="{% url 'view_about' %}">About Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Business Hours</h3>
+            <ul>
+                <li>Monday - Friday: 9:00 AM - 7:00 PM</li>
+                <li>Saturday: 10:00 AM - 6:00 PM</li>
+                <li>Sunday: Closed</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Carvista. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body></html>

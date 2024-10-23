@@ -1,110 +1,63 @@
-{% extends 'carousel.html' %}
-{% block b %}
-<style>
-.mybtnone:hover{background-color : #800000;
-color : #429E00 ; font-weight : bold
-}
+{% extends 'navigation.html' %}
+{% load static %}
 
+{% block content %}
+    <div class="middle">
+        <img class="midimg" src="{% static 'images/FIND YOUR CAR.png' %}" alt="Find Your Car">
+        <a href="#" class="explorenow">Explore Now</a>
+    </div>
+    
+    <div class="popularmodels">
+        <p id="head">Popular Models</p>
+        <div class="cars">
+            <div class="car">
+                <img src="{% static 'images/new-baleno-front.webp' %}" alt="Baleno">
+                <div class="bottom">
+                    <div class="ptext">
+                        <p>Baleno</p>
+                        <p>9.84 Lacs</p>
+                    </div>
+                    <a class="view" href="#">View</a>
+                </div>
+            </div>
+            <div class="car">
+                <img src="{% static 'images/hyundai-creta.webp' %}" alt="Creta">
+                <div class="bottom">
+                    <div class="ptext">
+                        <p>Creta</p>
+                        <p>11 Lacs</p>
+                    </div>
+                    <a class="view" href="#">View</a>
+                </div>
+            </div>
+            <div class="car">
+                <img src="{% static 'images/range rover.avif' %}" alt="Range Rover">
+                <div class="bottom">
+                    <div class="ptext">
+                        <p>Range Rover</p>
+                        <p>70 Lacs</p>
+                    </div>
+                    <a class="view" href="#">View</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-.zoom:hover {
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(2.5);
-}
-
-</style>
-<div class="container-fluid">
-		<center><h5 style = "font-family : 'Monotype Corsiva' ; color : DarkSlateGrey ; font-weight : bold;margin-top:2%">Help You To Find Perfect Car</h5>
-
-	<h2 style = "font-family : 'Monotype Corsiva' ; color : black ; font-weight : bold;margin-top:2%">Our Car <span style="color:red">Listing</span></h2></center>
-<hr> {% csrf_token %}
-	{% if error %}
- <div class="container-fluid" style="margin-bottom:3%">
-	 <div class="row">
-			{% for j in data %}
-				<div class="col-md-4" style="border-radius:6px;width:25%;margin-top:1%">
-					<center><img class="zoom" align="center" src="{{j.img1.url}}" style="width:250px;height:170px;float:center" alt="card-img">
-
-						<a href="{% url 'car_detail' j.id %}"><button type="submit" class="btn btn-primary mybtnone" style="float:center;width:250px;height:100px;background-color:DarkSlateGrey">{{j.carname}}<br>{{j.milage}}kmpl - {{j.carmodel}}<br>RS:{{j.carprice}}</button></a></center>
-   				</div>
-
-			{% endfor %}
-
-		 {% else %}
-		  <div class="container-fluid" style="margin-bottom:3%">
-	 <div class="row">
-			{% for j in data2 %}
-				<div class="col-md-4" style="border-radius:6px;width:25%;margin-top:1%">
-					<center><img class="zoom" align="center" src="{{j.img1.url}}" style="width:250px;height:170px;float:center" alt="card-img">
-
-						<a href="{% url 'car_detail' j.id %}"><button type="submit" class="btn btn-primary mybtnone" style="float:center;width:250px;height:100px;background-color:DarkSlateGrey">{{j.carname}}<br>{{j.milage}}kmpl - {{j.carmodel}}<br>RS:{{j.carprice}}</button></a></center>
-   				</div>
-
-			{% endfor %}
-
-
- {% endif %}
-			<style>
-html{
-scroll-behavior:smooth;
-}
-
-
-/*scroll button start*/
-#scrollbtn
-{
-
-position:fixed;
-bottom:20px;
-right:40px;
-z-index:99;
-border:none;
-color:red;
-background:#00abff;
-padding:10px;
-border-radius:10px;
-}
-/*scroll button end*/
-</style>
-
- <div class="scrolltop float-right">
-  <i class="fa fa-car" onclick="topFunction()" id="scrollbtn"></i>
-  </div>
-
-<script>
-  scrollbutton = document.getElementById("scrollbtn");
-  window.onscroll = function(){scrollFunction()};
-
-  function scrollFunction()
-  {
-  if(document.body.scrollTop>20 || document.documentElement.scrollTop>20)
-  {
-  scrollbutton.style.display="block";
-  }
-  else
-  {
-  scrollbutton.style.display="none";
-  }
-  }
-
-  function topFunction()
-  {
-  document.body.scrollTop = 0;//safari
-  document.documentElement.scrollTop = 0;//for chrome
-  }
-
-</script>
-
-		</div>
-	</div>
- </div>
-
-      </div>
-
-
-
-
-
+    <div class="AboutUs">
+        <p id="head">About Us</p>
+        <div class="content">
+            <img src="{% static 'images/1200px-2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg' %}" alt="Toyota Corolla">
+            <div class="contents">
+                <p class="contenttext">
+                    Welcome to Carvista—your trusted partner in finding the perfect car! At Carvista, 
+                    we believe that choosing a car should be an exciting, 
+                    hassle-free experience. Whether you’re looking for the latest models or exploring 
+                    pre-owned options, our platform is designed to make your car search as smooth and 
+                    efficient as possible.<br>
+                    Start your car search today with Carvista—driving your dreams forward!
+                </p>
+                <a class="discover" href="#">Discover</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
-
-

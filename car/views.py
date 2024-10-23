@@ -5,20 +5,8 @@ from .models import *
 import datetime
 
 def Home(request):
-    data2=Add_Car.objects.all()
-    da=""
-    data1=Categary.objects.all()
-    error=False
-    if request.method=='POST':
-        b=request.POST['brand']
-        m=request.POST['carmodel']
-        t=request.POST['cartype']
-        car = Categary.objects.get(brand=b)
-        da=Add_Car.objects.filter(brand=car,carmodel=m,cartype=t)
-        error=True
+    return render(request, 'user_home.html')
 
-    d={'data':da,'data2':data2,'error':error}
-    return render(request, 'user_home.html',d)
 def Logout(request):
     if not request.user.is_authenticated:
         return redirect('login')
